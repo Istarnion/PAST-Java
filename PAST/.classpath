@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="libs/EasyOgg/easyogg.jar"/>
+	<classpathentry kind="lib" path="libs/EasyOgg/jogg-0.0.7.jar"/>
+	<classpathentry kind="lib" path="libs/EasyOgg/jorbis-0.0.15.jar"/>
+	<classpathentry kind="lib" path="libs/EasyOgg/startup2.jar"/>
+	<classpathentry kind="lib" path="libs/lwjgl/lwjgl-2.9.1/jar/jinput.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="PAST/native/lwjgl/lwjgl-2.9.1/native/windows"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/JTattoo-1.6.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
