@@ -3,6 +3,10 @@ package past.startup;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
+import net.java.games.input.Component;
+import net.java.games.input.Controller;
+import net.java.games.input.ControllerEnvironment;
+
 public class Entry {
 
 	private final String[] MENU_OPTIONS = {
@@ -64,6 +68,16 @@ public class Entry {
 			} 
 			catch (Exception ex) {
 				System.out.println("Failed setting System laf. Reverting to Java defult.");
+			}
+		}
+		
+		ControllerEnvironment ce = ControllerEnvironment.getDefaultEnvironment();
+		Controller[] cntrls = ce.getControllers();
+		for (int i = 0; i < cntrls.length; i++) {
+			Component[] cmpnts = cntrls[i].getComponents();
+			System.out.println(cntrls[i].getName());
+			for (int j = 0; j < cmpnts.length; j++) {
+				System.out.println("--"+cmpnts[j].getName());
 			}
 		}
 		

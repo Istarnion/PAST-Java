@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
@@ -58,6 +60,16 @@ public class GameWindow  implements TimerWatcher {
 	
 	public void addKeyListener(KeyListener kl) {
 		canvas.addKeyListener(kl);
+		canvas.setFocusable(true);
+	}
+	
+	public void addMouseListener(MouseListener ml) {
+		canvas.addMouseListener(ml);;
+		canvas.setFocusable(true);
+	}
+	
+	public void addMouseMotionListener(MouseMotionListener mml) {
+		canvas.addMouseMotionListener(mml);
 		canvas.setFocusable(true);
 	}
 	
