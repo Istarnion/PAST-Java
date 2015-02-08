@@ -3,9 +3,7 @@ package past.startup;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
-import net.java.games.input.Component;
-import net.java.games.input.Controller;
-import net.java.games.input.ControllerEnvironment;
+import past.main.PAST;
 
 public class Entry {
 
@@ -24,30 +22,27 @@ public class Entry {
 	
 	public Entry() {
 		int input = 0;
-		do {
-			input = JOptionPane.showOptionDialog(null, "Welcome to P.A.S.T developer interface.", "P.A.S.T.",
-					JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,
-					null, MENU_OPTIONS, MENU_OPTIONS[QUIT_OPTION]);
-			
-			switch (input) {
-				case PAST_OPTION:
-				{
-					showNotImplementedDialog();
-				} break;
-				case ECHOES_OPTION:
-				{
-					showNotImplementedDialog();
-				} break;
-				case CONTENT_OPTION:
-				{
-					showNotImplementedDialog();
-				} break;
-				default:
-					input = QUIT_OPTION;
-					break;
-			}
+		input = JOptionPane.showOptionDialog(null, "Welcome to P.A.S.T developer interface.", "P.A.S.T.",
+				JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,
+				null, MENU_OPTIONS, MENU_OPTIONS[QUIT_OPTION]);
+		
+		switch (input) {
+			case PAST_OPTION:
+			{
+				new PAST();
+			} break;
+			case ECHOES_OPTION:
+			{
+				showNotImplementedDialog();
+			} break;
+			case CONTENT_OPTION:
+			{
+				showNotImplementedDialog();
+			} break;
+			default:
+				input = QUIT_OPTION;
+				break;
 		}
-		while(input != QUIT_OPTION);
 	}
 
 	public static void showNotImplementedDialog() {
@@ -71,15 +66,15 @@ public class Entry {
 			}
 		}
 		
-		ControllerEnvironment ce = ControllerEnvironment.getDefaultEnvironment();
-		Controller[] cntrls = ce.getControllers();
-		for (int i = 0; i < cntrls.length; i++) {
-			Component[] cmpnts = cntrls[i].getComponents();
-			System.out.println(cntrls[i].getName());
-			for (int j = 0; j < cmpnts.length; j++) {
-				System.out.println("--"+cmpnts[j].getName());
-			}
-		}
+//		ControllerEnvironment ce = ControllerEnvironment.getDefaultEnvironment();
+//		Controller[] cntrls = ce.getControllers();
+//		for (int i = 0; i < cntrls.length; i++) {
+//			Component[] cmpnts = cntrls[i].getComponents();
+//			System.out.println(cntrls[i].getName());
+//			for (int j = 0; j < cmpnts.length; j++) {
+//				System.out.println("--"+cmpnts[j].getName());
+//			}
+//		}
 		
 		new Entry();
 	}
