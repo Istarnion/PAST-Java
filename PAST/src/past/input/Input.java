@@ -25,6 +25,12 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener {
 
 	private float[] gamepadState;
 	
+	private Vector2 moveVector = new Vector2(0, 0);
+	
+	private Vector2 aimVector = new Vector2(0, 0);
+	
+	private boolean fireBtn, backBtn, shiftRightBtn, shiftLeftBtn;
+	
 	private InputSettings keyboardSettings;
 	
 	private InputSettings gamepadSettings;
@@ -54,36 +60,35 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener {
 	public static void pollInput() {
 		if(input.gamepad != null) {
 			pollGamepad(input.gamepad);
+			// TODO: Set the stuff according to the gamepadState and the gamepad InputSettings
 		}
-		
 	}
 	
 	public static Vector2 getMovement() {
-		return null;
+		return input.moveVector;
 	}
 	
 	public static Vector2 getAim(Vector2 posOnScreen) {
-		return null;
+		if(input.usingGamepad) return input.aimVector;
+		else {
+			return input.aimVector.subtract(posOnScreen).normalize();
+		}
 	}
 	
 	public static boolean getFireButtonDown() {
-		return false;
+		return input.fireBtn;
 	}
 	
 	public static boolean getBackButtonDown() {
-		return false;
-	}
-	
-	public static boolean getStartButtonDown() {
-		return false;
+		return input.backBtn;
 	}
 	
 	public static boolean getShiftLeftButtonDown() {
-		return false;
+		return input.shiftLeftBtn;
 	}
 	
 	public static boolean getShiftRightButtonDown() {
-		return false;
+		return input.shiftRightBtn;
 	}
 	
 	public static boolean isUsingGamepad() {
@@ -281,6 +286,33 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener {
 				broadcastInputEvent(new InputEvent(true, InputType.BACK));
 			}
 		}
+		else {
+			int kcode = ke.getKeyCode();
+			if(kcode == keyboardSettings.UP) {
+				// update movement vector
+			}
+			else if(kcode == keyboardSettings.DOWN) {
+				// Same
+			}
+			else if(kcode == keyboardSettings.LEFT) {
+				// Same
+			}
+			else if(kcode == keyboardSettings.RIGHT) {
+				// AAAAAnd same
+			}
+			else if(kcode == keyboardSettings.FIRE) {
+				fireBtn = true;
+			}
+			else if(kcode == keyboardSettings.BACK) {
+				backBtn = true;
+			}
+			else if(kcode == keyboardSettings.CHANGE_LEFT) {
+				shiftLeftBtn = true;
+			}
+			else if(kcode == keyboardSettings.CHANGE_RIGHT) {
+				shiftRightBtn = true;
+			}
+		}
 	}
 
 	@Override
@@ -304,6 +336,33 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener {
 			}
 			else if(kcode == keyboardSettings.BACK) {
 				broadcastInputEvent(new InputEvent(false, InputType.BACK));
+			}
+		}
+		else {
+			int kcode = ke.getKeyCode();
+			if(kcode == keyboardSettings.UP) {
+				// update movement vector
+			}
+			else if(kcode == keyboardSettings.DOWN) {
+				// Same
+			}
+			else if(kcode == keyboardSettings.LEFT) {
+				// Same
+			}
+			else if(kcode == keyboardSettings.RIGHT) {
+				// AAAAAnd same
+			}
+			else if(kcode == keyboardSettings.FIRE) {
+				fireBtn = false;
+			}
+			else if(kcode == keyboardSettings.BACK) {
+				backBtn = false;
+			}
+			else if(kcode == keyboardSettings.CHANGE_LEFT) {
+				shiftLeftBtn = false;
+			}
+			else if(kcode == keyboardSettings.CHANGE_RIGHT) {
+				shiftRightBtn = false;
 			}
 		}
 	}
