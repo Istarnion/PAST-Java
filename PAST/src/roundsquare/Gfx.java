@@ -105,6 +105,11 @@ public class Gfx {
 		g.drawLine((int)x1, (int)y1, (int)x2, (int)y2);
 	}
 	
+	public void drawString(String text, double x, double y) {
+		g.setColor(borderColor);
+		g.drawString(text, (int)x, (int)y);
+	}
+	
 	/**
 	 * Gives access to the Graphics2D object directly, for more advanced drawing.
 	 * 

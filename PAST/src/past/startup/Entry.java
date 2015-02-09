@@ -66,15 +66,9 @@ public class Entry {
 			}
 		}
 		
-//		ControllerEnvironment ce = ControllerEnvironment.getDefaultEnvironment();
-//		Controller[] cntrls = ce.getControllers();
-//		for (int i = 0; i < cntrls.length; i++) {
-//			Component[] cmpnts = cntrls[i].getComponents();
-//			System.out.println(cntrls[i].getName());
-//			for (int j = 0; j < cmpnts.length; j++) {
-//				System.out.println("--"+cmpnts[j].getName());
-//			}
-//		}
+		int i = 0;
+		i = (i-1)%2;
+		System.out.println(i = (((-1 % 2) + 2) % 2));
 		
 		new Entry();
 	}

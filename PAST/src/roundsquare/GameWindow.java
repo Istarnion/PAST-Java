@@ -17,10 +17,12 @@ public class GameWindow  implements TimerWatcher {
 
 	private Canvas canvas;
 	
+	private JFrame frame;
+	
 	private RenderingHints hints;
 	
 	public GameWindow(String title, int width, int height) {
-		JFrame frame = new JFrame(title);
+		frame = new JFrame(title);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBackground(Color.BLACK);
 		
@@ -71,6 +73,11 @@ public class GameWindow  implements TimerWatcher {
 	public void addMouseMotionListener(MouseMotionListener mml) {
 		canvas.addMouseMotionListener(mml);
 		canvas.setFocusable(true);
+	}
+	
+	public void exit(int exitcode) {
+		//frame.dispose();
+		System.exit(exitcode);
 	}
 	
 	@Override
